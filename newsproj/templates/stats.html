@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1>Статистика</h1>
+    <table class="table table-primary">
+        <thead>
+        <td>ID</td>
+        <td>Заголовок</td>
+        <td>Дата добавления</td>
+        <td>Количество просмотров</td>
+        </thead>
+        <tbody>
+        {% for i in news %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td><a href="{{ i.id }}">{{ i.title }}</a></td>
+            <td>{{ i.created_date }}</td>
+            <td>{{ i.views }}</td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

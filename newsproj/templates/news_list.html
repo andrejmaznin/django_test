@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1>Список новостей</h1>
+    <table class="table table-primary">
+        <thead>
+        <td>ID</td>
+        <td>Заголовок</td>
+        <td>Просмотры</td>
+        </thead>
+        <tbody>
+        {% for i in news %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td><a href="{{ i.id }}">{{ i.title }}</a></td>
+            <td>{{ i.views }}</td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
