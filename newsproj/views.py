@@ -13,6 +13,8 @@ def news_list(request):
 
 def news_id(request, id):
     news = News.objects.get(id=id)
+    news.views = news.views + 1
+    news.save()
     if not news:
         return HttpResponseNotFound()
     return render(request, 'news.html', {"news": news, "tags": news.tags.split(",")})
